@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #main {
+            padding: 10px;
+            background-color: aquamarine;
+            border-radius: 8px;
+        }
+        #ip1 {
+            margin-bottom: 5px;
+            font-size: 20px;
+            padding: 3px;
+            text-align: right;
+        }
+        /* Change button color on hover */
+        input[type="button"]:hover {
+            background-color:violet;
+        }
+
+        /* Style for the submit button */
+        input[type="submit"] {
+            font-size: 18px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        input[type="submit"]:hover {
+            background-color: palevioletred;
+        }
+        #clear {
+            width: 70px;
+            background-color: rgb(116, 225, 245);
+            color: white;
+        }
+    </style>
+    </style>
+</head>
+<body>
+    <div id="main">
+        <form id="form1" onsubmit="evaluation(event)">
+            <input style="height:40px; width:169px ;" type="text" id="ip1">
+            <input style="height:40px; width:40px ;" type="button" value="1" onclick="input(event)"/>
+            <input style="height:40px; width:40px ;" type="button" value="2" onclick="input(event)"/>
+            <input style="height:40px; width:40px ;" type="button" value="3" onclick="input(event)"/>
+            <input style="height:40px; width:40px ;" type="button" value="+" onclick="input(event)"/>
+            <input style="height:40px; width:40px ;" type="button" value="4" onclick="input(event)"/>
+            <input style="height:40px; width:40px ;" type="button" value="5" onclick="input(event)"/>
+            <input style="height:40px; width:40px ;" type="button" value="6" onclick="input(event)"/>
+            <input style="height:40px; width:40px ;" type="button" value="-" onclick="input(event)"/>
+            <input style="height:40px; width:40px ;" type="button" value="7" onclick="input(event)"/>
+            <input style="height:40px; width:40px ;" type="button" value="8" onclick="input(event)"/>
+            <input style="height:40px; width:40px ;" type="button" value="9" onclick="input(event)"/>
+            <input style="height:40px; width:40px ;" type="button" value="*" onclick="input(event)"/>
+            <input style="height:40px; width:40px ;" type="button" value="C" id="clear">
+            <input style="height:40px; width:40px ;" type="button" value="0" onclick="input(event)"/>
+            <input style="height:40px; width:40px ;" type="button" value="%" onclick="input(event)"/>
+            <input style="height:40px; width:40px ;" type="button" value="/" onclick="input(event)"/>
+            <input style="height:40px; width:70px; margin-left: 50px; margin-top: 2px;"type="submit">
+        </form>
+        <p id="op"></p>
+        </div>
+        <script>
+            let div=document.getElementById("main");
+            div.style.border="1px solid black";
+            div.style.height="250px";
+            div.style.width="177px";
+            div.style.marginTop="150px"
+            div.style.marginLeft="400px"
+            let op=document.getElementById("op");
+            let form=document.getElementById("form1");
+            let display=document.getElementById("ip1");
+           let clear=document.getElementById("clear")
+           clear.addEventListener("click",()=>{
+            display.value=" "
+           }
+           )
+            function input(){
+                display.value+=event.target.value;
+            }
+            function evaluation(event){
+                event.preventDefault();
+                let result=eval(display.value);
+                display.value=result;
+            }
+    </script>
+</body>
+</html>
